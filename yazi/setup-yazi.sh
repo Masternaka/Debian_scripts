@@ -1,6 +1,4 @@
 #!/usr/bin/env bash
-# Script d'installation et configuration de Yazi pour Linux
-# À exécuter après avoir copié les fichiers de configuration
 
 set -e
 

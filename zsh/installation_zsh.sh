@@ -1,11 +1,4 @@
 #!/bin/bash
-# =============================================================================
-#  ZSH Setup — Linux Mint / Ubuntu / Debian
-#  Plugins : zinit + zsh-autosuggestions, zsh-syntax-highlighting,
-#            zsh-completions, zsh-bat, fzf-zsh-plugin, zsh-zoxide
-#  Brew    : bat, fzf, zoxide, eza
-#  Font    : JetBrainsMono Nerd Font (GitHub Nerd Fonts)
-# =============================================================================
 
 set -euo pipefail
 

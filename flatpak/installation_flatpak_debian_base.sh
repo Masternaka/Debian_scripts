@@ -1,19 +1,6 @@
 #!/bin/bash
-set -euo pipefail
 
-###############################################################################
-# Script d'installation automatisée des applications Flatpak
-# Compatible : Debian / Ubuntu / Linux Mint
-# Bureaux    : GNOME / KDE Plasma / Cinnamon / XFCE / MATE
-#
-# Utilisation:
-#   sudo ./installation_flatpak_debian_base.sh [--help] [--dry-run] [--list]
-#
-# Options:
-#   --help    : Affiche l'aide et quitte
-#   --dry-run : Simule les installations sans effectuer de modifications
-#   --list    : Affiche la liste des applications qui seraient installées
-###############################################################################
+set -euo pipefail
 
 # Couleurs
 GREEN="\e[32m"

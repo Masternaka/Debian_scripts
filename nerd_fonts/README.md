@@ -1,19 +1,14 @@
 # Installation des Nerd Fonts
 
-Ce script facilite l'installation des *Nerd Fonts* sur macOS et Linux.
+Ce script installe des *Nerd Fonts* sur **Linux** en téléchargeant les archives depuis les releases GitHub officielles et en les ajoutant à votre dossier de polices utilisateur.
 
 ## 🔧 Ce que fait le script
 
-- Détecte le système (macOS ou Linux).
-- Sur macOS :
-  - Installe (ou vérifie) Homebrew.
-  - Active le **tap** `homebrew/cask-fonts`.
-  - Installe plusieurs polices Nerd Fonts via `brew install --cask`.
-- Sur Linux :
-  - Si Homebrew est déjà installé, il l'utilise pour installer les polices.
-  - Sinon, propose deux options :
-    1) Installer via Homebrew (recommandé).
-    2) Installer manuellement (téléchargement + extraction + installation locale).
+- Vérifie que le système est bien **Linux** (sinon, il s'arrête).
+- Vérifie que les commandes nécessaires sont présentes : `curl`, `unzip` et `fc-cache`.
+- Télécharge les archives `.zip` des polices depuis la dernière release de `ryanoasis/nerd-fonts`.
+- Extrait les fichiers `.ttf` / `.otf` et les copie dans `~/.local/share/fonts/NerdFonts`.
+- Met à jour le cache des polices (`fc-cache -fv`).
 
 ## 🚀 Utilisation
 
@@ -21,7 +16,7 @@ Ce script facilite l'installation des *Nerd Fonts* sur macOS et Linux.
 2. Allez dans le dossier du script :
 
 ```sh
-cd ~/Desktop/Github/scripts/Nerd_fonts
+cd ~/Desktop/Github/Debian_scripts/nerd_fonts
 ```
 
 3. Rendez le script exécutable (si ce n'est pas déjà le cas) :
@@ -38,10 +33,10 @@ chmod +x install_nerd_fonts.sh
 
 ## 📝 Notes
 
-- Sur macOS, Homebrew est installé automatiquement si absent.
-- Sur Linux, l'installation manuelle place les polices dans :
-  `~/.local/share/fonts/NerdFonts` et met à jour le cache de polices.
-- Après installation, redémarrez vos applications (ou votre session) pour que les nouvelles polices soient prises en compte.
+- Ce script est conçu pour **Linux uniquement** et renverra une erreur sur macOS (ou d'autres OS).
+- Les polices sont installées dans :
+  `~/.local/share/fonts/NerdFonts`.
+- Après installation, redémarrez vos applications (ou votre session) pour voir les nouvelles polices.
 
 ## 📦 Polices installées
 
