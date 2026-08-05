@@ -8,6 +8,7 @@
 - [ ] Essayer d'utiliser ces thèmes de Polybar: https://github.com/adi1090x/polybar-themes
 - [ ] Essayer d'utiliser ces thèmes de Rofi: https://github.com/adi1090x/rofi
 - [ ] Créer un script pour installer les fontes pour icones: "Font Awesome" "Material Design Icons"
+- [ ] Terminer le script 16 - remove_packages.sh
 
 Logiciels
 
@@ -32,7 +33,6 @@ Logiciels
 - Vivaldi / vivaldi-ffmpeg-codecs
 - Zen Browser
 - Angry IP Scanner
-- Reasonix
 - Sourcetree
 - Claude Code
 - Codex
