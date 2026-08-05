@@ -43,6 +43,11 @@ ENABLE_NONFREE=false
 SEARCH_TERM=""
 REPOS=()
 
+# Paquets à installer depuis les dépôts extrepo activés (à adapter)
+EXTREPO_PACKAGES=(
+
+)
+
 # ---------------------------------------------------------------------------
 # Fonctions utilitaires
 # ---------------------------------------------------------------------------
@@ -195,6 +200,27 @@ enable_repos() {
 }
 
 # ---------------------------------------------------------------------------
+# Installation des paquets depuis les dépôts extrepo
+# ---------------------------------------------------------------------------
+install_extrepo_packages() {
+    if [[ ${#EXTREPO_PACKAGES[@]} -eq 0 ]]; then
+        return 0
+    fi
+
+    if [[ "$DRY_RUN" == false ]]; then
+        if ! compgen -G "/etc/apt/sources.list.d/extrepo_*.sources" >/dev/null 2>&1; then
+            log_error "Aucun dépôt extrepo n'est activé."
+            log_error "Spécifiez des dépôts en argument ou activez-les avant d'installer des paquets."
+            exit 1
+        fi
+    fi
+
+    log_info "Installation des paquets extrepo : ${EXTREPO_PACKAGES[*]}"
+    run_cmd apt-get install -y "${EXTREPO_PACKAGES[@]}"
+    log_success "Paquets extrepo installés."
+}
+
+# ---------------------------------------------------------------------------
 # Mise à jour des métadonnées extrepo et d'APT
 # ---------------------------------------------------------------------------
 update_and_refresh() {
@@ -268,6 +294,7 @@ main() {
     enable_policies
     enable_repos
     update_and_refresh
+    install_extrepo_packages
 
     echo
     log_success "Script terminé avec succès."

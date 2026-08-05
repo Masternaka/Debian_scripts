@@ -99,7 +99,7 @@ OFFICIAL_PACKAGES=(
     micro
     meld
     hx
-    neovim
+    #neovim
 
 # Langues
     libreoffice-l10n-fr
@@ -111,9 +111,9 @@ OFFICIAL_PACKAGES=(
 
 BACKPORT_PACKAGES=(
 
-# Kernel
-linux-image-7.0.9+deb13-amd64
-linux-headers-7.0.9+deb13-amd64
+# Kernel (Important, il faut vérifier la dernière version disponible sur le miroir backports)
+#linux-image-7.0.9+deb13-amd64
+#linux-headers-7.0.9+deb13-amd64
 
 # Utilitaires
 flameshot
@@ -124,25 +124,15 @@ libreoffice
 
 )
 
-EXTREPO_PACKAGES=(
-
-)
-
 backports_enabled() {
     grep -Rqs "$BACKPORTS_SUITE" /etc/apt/sources.list /etc/apt/sources.list.d 2>/dev/null
-}
-
-extrepo_enabled() {
-    # Vérifie qu'au moins un dépôt extrepo a été activé
-    # (fichiers créés par 'extrepo enable' dans /etc/apt/sources.list.d)
-    compgen -G "/etc/apt/sources.list.d/extrepo_*.sources" >/dev/null 2>&1
 }
 
 # -------------------------------
 # MISE À JOUR
 # -------------------------------
-if [ ${#OFFICIAL_PACKAGES[@]} -eq 0 ] && [ ${#BACKPORT_PACKAGES[@]} -eq 0 ] && [ ${#EXTREPO_PACKAGES[@]} -eq 0 ]; then
-    echo "Aucun paquet à installer. Remplis OFFICIAL_PACKAGES, BACKPORT_PACKAGES ou EXTREPO_PACKAGES."
+if [ ${#OFFICIAL_PACKAGES[@]} -eq 0 ] && [ ${#BACKPORT_PACKAGES[@]} -eq 0 ]; then
+    echo "Aucun paquet à installer. Remplis OFFICIAL_PACKAGES ou BACKPORT_PACKAGES."
     exit 0
 fi
 
@@ -165,17 +155,6 @@ if [ ${#BACKPORT_PACKAGES[@]} -gt 0 ]; then
 
     echo "Installation depuis les backports : ${BACKPORT_PACKAGES[*]}"
     run apt-get install -y -t "$BACKPORTS_SUITE" "${BACKPORT_PACKAGES[@]}"
-fi
-
-if [ ${#EXTREPO_PACKAGES[@]} -gt 0 ]; then
-    if ! extrepo_enabled; then
-        echo "ERREUR : Aucun dépôt extrepo n'est activé." >&2
-        echo "Lance d'abord : sudo bash 'install-extrepo.sh' <nom-du-dépôt>" >&2
-        exit 1
-    fi
-
-    echo "Installation depuis les dépôts extrepo : ${EXTREPO_PACKAGES[*]}"
-    run apt-get install -y "${EXTREPO_PACKAGES[@]}"
 fi
 
 echo "Terminé."
