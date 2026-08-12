@@ -36,6 +36,7 @@ Logiciels
 - Sourcetree
 - Claude Code
 - Codex
+- Fresh Editor (curl https://raw.githubusercontent.com/sinelaw/fresh/refs/heads/master/scripts/install.sh | sh)
 
 Liens web:
 
