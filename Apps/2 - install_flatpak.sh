@@ -44,6 +44,9 @@ applications=(
     "io.github.flattool.Warehouse:Warehouse"
     "com.github.tchx84.Flatseal:Flatseal"
     "io.github.giantpinkrobots.flatsweep:Flatsweep"
+    
+    # Logiciel pour gestion des appimages
+    #"it.mijorus.gearlever:Gear Lever"
 
     # Logiciels pour installation de logiciels windows et distrobox
     "com.usebottles.bottles:Bottles"
@@ -71,7 +74,18 @@ applications=(
     "org.gnome.World.PikaBackup:Pika Backup"
 
     # Utilitaire de communication
+    #"com.discordapp.Discord:Discord"
     "dev.vencord.Vesktop:Vesktop"
+
+    # Password manager
+    "org.keepassxc.KeePassXC:KeePassXC"
+    "com.bitwarden.desktop:Bitwarden"
+
+    # Multimédia et musique
+    #"com.spotify.Client:Spotify"
+
+    # Météo
+    "io.github.amit9838.mousam:Mousam"
 )
 
 # ─── Fonctions utilitaires ────────────────────────────────────────────────────

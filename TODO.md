@@ -1,47 +1,37 @@
 - [ ] Créer un script pour installer mes alias et fonctions dans le .bashrc (Voir Wiki.md pour explications comment faire)
 - [ ] Mettre mes alias dans le fichier .bash_aliases dans le repo dotfiles
-- [ ] Créer un script pour faire l'installation de paquets à partir de Extrepo
-- [ ] Mettre à jour l'ordre d'execution des scripts, backports, extrepo, flatpak et au final 09 - install_apt.sh
-- [ ] Vérifier le script extrepo (voir sur Claude pour les explications)
-- [ ] Ajouter les applications dans la liste selon leurs sources
-- [ ] Créer un script pour l'installatino de Homebrew et installer des paquets avec homebrew (https://brew.sh/ )
 - [ ] Essayer d'utiliser ces thèmes de Polybar: https://github.com/adi1090x/polybar-themes
 - [ ] Essayer d'utiliser ces thèmes de Rofi: https://github.com/adi1090x/rofi
-- [ ] Créer un script pour installer les fontes pour icones: "Font Awesome" "Material Design Icons"
-- [ ] Terminer le script 16 - remove_packages.sh
+- [ ] Modifier le script pour adapter l'installation de lightdm à partir de mon Github
+- [ ] Pour l'installation de QEMU et Virt-manager voir le script sur mon Github
 
-Logiciels
 
-- helium-browser
-- helixnotes-appimage
+Logiciels:
+- firefox (latest)
+- Thunderbird (latest)
 - wps-office
 - deepseek-reasonix-tui
 - deepseek-reasonix-desktop
 - thunderbird latest
-- firefox latest
-- sourcetree
-- obsidian
-- OpenRGB
 - Warp Terminal
-- Obsidian
-- VsCode
-- Zed editor
-- Github Desktop
-- Gitkraken
-- Brave
-- Brave Origin
-- Vivaldi / vivaldi-ffmpeg-codecs
-- Zen Browser
-- Angry IP Scanner
-- Sourcetree
-- Claude Code
-- Codex
+- Cursor Editor
 - Fresh Editor (curl https://raw.githubusercontent.com/sinelaw/fresh/refs/heads/master/scripts/install.sh | sh)
-
-Liens web:
-
-- https://vesktop.dev/install/
-- https://obsidian.md/download
-- https://code.visualstudio.com/Download?_exp_download=fb315fc982
-- https://zed.dev/
--
+- OpenRGB ([OpenRGB](https://openrgb.org/releases.html))
+- Obsidian ([Download](https://obsidian.md/download))
+- VsCode ([Download Visual Studio Code - Free AI Code Editor for Mac, Linux, Windows](https://code.visualstudio.com/Download?_exp_download=fb315fc982))
+- Zed editor ([Zed — Download](https://zed.dev/download))
+- Gitkraken ([Download Free Git Client - Windows, Mac, Linux | GitKraken](https://www.gitkraken.com/download))
+- Lazygit ([GitHub - jesseduffield/lazygit: simple terminal UI for git commands](https://github.com/jesseduffield/lazygit#installation))
+- Brave ([Installing Brave on Linux | Brave](https://brave.com/linux/))
+- Brave Origin ([Brave Origin Beta on Linux | Brave](https://brave.com/origin/linux/beta/))
+- Zen Browser (Script)
+- Angry IP Scanner ([Angry IP Scanner - Download for Windows, Mac or Linux](https://angryip.org/download/#linux))
+- Reasonix ([Reasonix — DeepSeek-native coding agent for your terminal](https://reasonix.io/?download=desktop#start))
+- Claude Code ([Quickstart - Claude Code Docs](https://code.claude.com/docs/en/quickstart#step-1-install-claude-code))
+- Codex ([Codex in ChatGPT | AI Coding Agents for Software Engineering](https://openai.com/codex/))
+- Hellix ([Releases · helix-editor/helix](https://github.com/helix-editor/helix/releases))
+- Helium Browser ([Releases · imputnet/helium-linux](https://github.com/imputnet/helium-linux/releases))
+- FreeFileSync ([FreeFileSync](https://freefilesync.org/download.php))
+- Topgrade ([Releases · topgrade-rs/topgrade](https://github.com/topgrade-rs/topgrade/releases))
+- HelixNotes ([HelixNotes | Local Markdown Notes](https://helixnotes.com/#download))
+- Fresh Editor ([Fresh - The Terminal IDE](https://getfresh.dev/#install))

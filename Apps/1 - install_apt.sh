@@ -2,7 +2,6 @@
 
 set -euo pipefail
 
-BACKPORTS_SUITE="trixie-backports"
 DRY_RUN=0
 
 show_help() {
@@ -40,13 +39,19 @@ run() {
 }
 
 # -------------------------------
-# PAQUETS À INSTALLER (à adapter)
+# PAQUETS À INSTALLER
 # -------------------------------
 OFFICIAL_PACKAGES=(
+
+# Kernel (Important, il faut vérifier la dernière version disponible sur le miroir officiel)
+    linux-image-amd64
+    linux-headers-amd64
 
 # Utilitaires
     ufw
     gufw
+    #firewalld
+    #firewall-config
     catfish
     gnome-disk-utility
     gparted
@@ -58,8 +63,13 @@ OFFICIAL_PACKAGES=(
     7zip
     unzip
     stow
-    debsecan
     fontconfig
+    font-manager
+    gnome-system-tools
+    synaptic
+    flameshot
+    xclip (x11 uniquement)
+    #wl-clipboard (wayland uniquement)
 
 # Utilitaires terminal
     btop
@@ -70,9 +80,8 @@ OFFICIAL_PACKAGES=(
     wget
     ranger
 
-
 # Sécurité
-    keepassxc
+    #keepassxc (plus à jour que le paquet officiel, voir install_flatpak.sh)
 
 # Multimédia
     strawberry
@@ -83,7 +92,7 @@ OFFICIAL_PACKAGES=(
     
 
 # Office et notes
-    
+    libreoffice
 
 # Virtualisation
     qemu
@@ -101,38 +110,31 @@ OFFICIAL_PACKAGES=(
     hx
     #neovim
 
+# Polices
+    fonts-cascadia-code
+    fonts-firacode
+    fonts-hack
+    fonts-jetbrains-mono
+    fonts-noto
+    fonts-font-awesome
+
 # Langues
     libreoffice-l10n-fr
     firefox-l10n-fr
     thunderbird-l10n-fr 
 
-
+# Debian Testing
+    #extrepo (installer via le script install_extrepo.sh)
+    debsecan
+    listbugs
+    apt-listchanges
 )
-
-BACKPORT_PACKAGES=(
-
-# Kernel (Important, il faut vérifier la dernière version disponible sur le miroir backports)
-#linux-image-7.0.9+deb13-amd64
-#linux-headers-7.0.9+deb13-amd64
-
-# Utilitaires
-flameshot
-
-# Office et notes
-libreoffice
-
-
-)
-
-backports_enabled() {
-    grep -Rqs "$BACKPORTS_SUITE" /etc/apt/sources.list /etc/apt/sources.list.d 2>/dev/null
-}
 
 # -------------------------------
 # MISE À JOUR
 # -------------------------------
-if [ ${#OFFICIAL_PACKAGES[@]} -eq 0 ] && [ ${#BACKPORT_PACKAGES[@]} -eq 0 ]; then
-    echo "Aucun paquet à installer. Remplis OFFICIAL_PACKAGES ou BACKPORT_PACKAGES."
+if [ ${#OFFICIAL_PACKAGES[@]} -eq 0 ]; then
+    echo "Aucun paquet à installer. Remplis OFFICIAL_PACKAGES."
     exit 0
 fi
 
@@ -144,17 +146,6 @@ run apt-get update
 if [ ${#OFFICIAL_PACKAGES[@]} -gt 0 ]; then
     echo "Installation depuis les dépôts officiels : ${OFFICIAL_PACKAGES[*]}"
     run apt-get install -y "${OFFICIAL_PACKAGES[@]}"
-fi
-
-if [ ${#BACKPORT_PACKAGES[@]} -gt 0 ]; then
-    if ! backports_enabled; then
-        echo "ERREUR : $BACKPORTS_SUITE n'est pas activé." >&2
-        echo "Lance d'abord : sudo bash '08 - install_backports.sh'" >&2
-        exit 1
-    fi
-
-    echo "Installation depuis les backports : ${BACKPORT_PACKAGES[*]}"
-    run apt-get install -y -t "$BACKPORTS_SUITE" "${BACKPORT_PACKAGES[@]}"
 fi
 
 echo "Terminé."
