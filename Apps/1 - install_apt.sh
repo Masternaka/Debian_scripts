@@ -126,7 +126,8 @@ OFFICIAL_PACKAGES=(
 # Debian Testing
     #extrepo (installer via le script install_extrepo.sh)
     debsecan
-    listbugs
+    needrestart
+    apt-listbugs
     apt-listchanges
 )
 
