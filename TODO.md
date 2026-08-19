@@ -12,6 +12,7 @@ Logiciels:
 - wps-office
 - deepseek-reasonix-tui
 - deepseek-reasonix-desktop
+- deepseek Harness (https://www.deepseek.com/harness/en/) 
 - thunderbird latest
 - Warp Terminal
 - Cursor Editor
