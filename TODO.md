@@ -36,3 +36,4 @@ Logiciels:
 - Topgrade ([Releases · topgrade-rs/topgrade](https://github.com/topgrade-rs/topgrade/releases))
 - HelixNotes ([HelixNotes | Local Markdown Notes](https://helixnotes.com/#download))
 - Fresh Editor ([Fresh - The Terminal IDE](https://getfresh.dev/#install))
+- Zen Browser ([Zen Browser](https://zen-browser.app/download/))
